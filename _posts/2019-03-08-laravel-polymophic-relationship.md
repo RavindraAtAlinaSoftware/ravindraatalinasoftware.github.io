@@ -154,4 +154,8 @@ $firstPhoto->comment->pluck('name')
 
 // Feel free to play with it then implement
 
+// REVERSE
+$firstComment = Comment::first();
+$firstComment->commentable;     //Gives Photo or Video Model
+// You can use get_class in php to check whether it is photo or video
 ```
