@@ -5,11 +5,36 @@ date:   2019-03-08 14:53:15 +0530
 categories: laravel
 ---
 
-# WARNING: Work in progress
-### Getting Started with Queues in Laravel
-Points you should remember
-- Queue needs a driver and we can use database for starting
-- To do that type `php artisan queue:table` and then `php artisan migrate`
-- Queue requires Jobs, so create a new job for a task you're going to do.
-- `php artisan make:job SendNotification`
-- Job constructor receives an argument and calls dispatch method to do something you want to do
+# Getting Started with Queues in Laravel
+## WARNING: Work in progress
+
+### Step 1: Select A Driver
+
+Queue requires a driver to store information about failed and success tasks, we are going to use database as driver so open your terminal and type the following command
+
+```bash
+php artisan queue:table
+php artisan migrate
+```
+
+On default setup queue driver is set to sync, which means everything will be executed synchronously but we are going to change it to database so open your `.env` file and add this line
+
+```
+QUEUE_DRIVER=database
+```
+
+# Step 2: Create a job
+
+To use a queue we need jobs, to do that open your terminal and type
+
+```bash
+php artisan make:job SendWelcomeEmail
+```
+
+# Step 3: Implement login in the handle method
+
+```php
+// app/jobs/SendWelcomeEmail.php
+
+
+````
